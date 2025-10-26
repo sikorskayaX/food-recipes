@@ -32,5 +32,7 @@ export const Recipes = ({ products, isComplexSearch }: RecipesProps) => {
 		return <span>Error: {error.message}</span>;
 	}
 
-	return <RecipesList recipes={recipes || []} />;
+	return (
+		<RecipesList recipes={recipes || []} isComplexSearch={isComplexSearch} />
+	);
 };

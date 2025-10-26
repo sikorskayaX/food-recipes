@@ -2,12 +2,23 @@ import { ProductInput } from 'features/ProductInput';
 import { ProductList } from 'features/ProductList';
 import { Recipes } from 'features/Recipes';
 import { Search } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { GoBackButton } from 'shared/ui/GoBackButton';
 
 export const RecipesSearch = () => {
 	const [products, setProducts] = useState<string[]>([]);
 	const [isComplexSearch, setIsComplexSearch] = useState<boolean>(false);
+
+	useEffect(() => {
+		const savedProducts = localStorage.getItem('products');
+		if (savedProducts) {
+			setProducts(JSON.parse(savedProducts));
+		}
+	}, []);
+
+	useEffect(() => {
+		localStorage.setItem('products', JSON.stringify(products));
+	}, [products]);
 
 	const handleAddProduct = (product: string) => {
 		setProducts((prev) => [...prev, product]);
@@ -17,16 +28,19 @@ export const RecipesSearch = () => {
 		setProducts((prev) => prev.filter((p) => p !== product));
 	};
 
+	const handleClearProducts = () => {
+		setProducts([]);
+	};
+
 	return (
 		<div className="flex flex-col gap-5 p-5 ">
 			<div className="flex justify-between items-center w-full">
 				<GoBackButton />
 				<h1 className="flex gap-3 items-center text-[35px] self-center uppercase font-semibold mx-auto">
-					receipts search <Search />
+					recipes search <Search />
 				</h1>
 			</div>
 			<div className="flex gap-5 items-center justify-between">
-				{' '}
 				<div className="text-[25px]">
 					<span>mode: </span>
 					{isComplexSearch ? (
@@ -37,13 +51,17 @@ export const RecipesSearch = () => {
 				</div>
 				<button
 					onClick={() => setIsComplexSearch((prev) => !prev)}
-					className="bg-violet-800 text-white border  border-gray-400 p-2 hover:bg-violet-600 rounded-xl"
+					className="bg-violet-800 text-white border border-gray-400 p-2 hover:bg-violet-600 rounded-xl"
 				>
 					change mode
 				</button>
 			</div>
 			<ProductInput onAddProduct={handleAddProduct} />
-			<ProductList products={products} onRemoveProduct={handleRemoveProduct} />
+			<ProductList
+				products={products}
+				onRemoveProduct={handleRemoveProduct}
+				onClearProducts={handleClearProducts}
+			/>
 			{products.length > 0 && (
 				<Recipes products={products} isComplexSearch={isComplexSearch} />
 			)}
