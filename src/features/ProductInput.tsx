@@ -24,10 +24,15 @@ export const ProductInput: React.FC<ProductInputProps> = ({ onAddProduct }) => {
 				type="text"
 				value={product}
 				onChange={(e) => setProduct(e.target.value)}
-				placeholder="Введите продукт"
-                className='border rounded-md p-2 w-2/3'
+				placeholder="Product name"
+				className="border  border-gray-400 rounded-xl p-2 w-2/3"
 			/>
-			<button type="submit" className='border rounded-md p-2 w-1/3'>Добавить</button>
+			<button
+				type="submit"
+				className="border  border-gray-400 rounded-xl p-2 w-1/3 bg-white uppercase font-semibold"
+			>
+				add
+			</button>
 		</form>
 	);
 };

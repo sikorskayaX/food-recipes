@@ -1,44 +1,42 @@
-import { useComplexRecipes, useSimpleRecipes } from 'entities/useRecipes';
-import { ProductInput } from 'features/ProductInput';
-import { RecipesList } from 'features/RecipesList';
-import { useState } from 'react';
+import { CookingPot } from 'lucide-react';
+import { Link } from 'react-router';
 
 export const Home = () => {
-	const [products, setProducts] = useState<string[]>([]);
-	const [isComplexSearch, setIsComplexSearch] = useState<boolean>(false);
-
-	const handleAddProduct = (product: string) => {
-		setProducts((prev) => [...prev, product]);
-	};
-
-	const simpleRecipes = useSimpleRecipes(products);
-	const complexRecipes = useComplexRecipes(products);
-
-	const recipes = isComplexSearch ? complexRecipes : simpleRecipes;
-
 	return (
-		<div className="flex flex-col gap-5 p-5">
-			<h1 className='text-[40px]'>Reciepts search </h1>
-			{isComplexSearch ? (
-				<span>ingredients search</span>
-			) : (
-				<span>what's in your fridge</span>
-			)}
-			<button
-				onClick={() => setIsComplexSearch((prev) => !prev)}
-				className="bg-red-100"
+		<div className="flex flex-col gap-10 p-5 text-center ">
+			<h1 className="flex gap-3 items-center text-[35px] self-center uppercase font-semibold">
+				receipts <CookingPot size={30}/>
+			</h1>
+			<div className="w-2/3 self-center">
+				<h2 className="font-bold uppercase">Search Recipes</h2>
+				<span>
+					Ever wondered what recipes you can cook with the ingredients you have
+					in your fridge or pantry? This endpoint lets you find recipes that
+					either maximize the usage of ingredients you have at hand (pre
+					shopping) or minimize the ingredients that you don't currently have
+					(post shopping). Find recipes that use as many of the given
+					ingredients as possible and require as few additional ingredients as
+					possible. This is a "what's in your fridge"
+				</span>
+			</div>
+			<div className="w-2/3 self-center">
+				<h2 className="font-bold uppercase">Search Recipes by Ingredients</h2>
+				<span>
+					Ever wondered what recipes you can cook with the ingredients you have
+					in your fridge or pantry? This endpoint lets you find recipes that
+					either maximize the usage of ingredients you have at hand (pre
+					shopping) or minimize the ingredients that you don't currently have
+					(post shopping). Find recipes that use as many of the given
+					ingredients as possible and require as few additional ingredients as
+					possible. This is a "what's in your fridge"
+				</span>
+			</div>
+			<Link
+				to={'/recipes'}
+				className="border uppercase rounded-xl p-5 border-gray-400 font-semibold w-1/3 self-center bg-white"
 			>
-				{isComplexSearch ? "what's in your fridge" : 'ingredients search'}
-			</button>
-			<ProductInput onAddProduct={handleAddProduct} />
-			<span>products: </span>
-			<span>{products.join(', ')}</span>
-
-			{/* Обработка загрузки и ошибок */}
-			{/* {isLoading && <p>Загрузка...</p>}
-			{error && <p>Recipes loading error: {error}</p>} */}
-
-			<RecipesList recipes={recipes.data || []} />
+				go to recipes search
+			</Link>
 		</div>
 	);
 };
