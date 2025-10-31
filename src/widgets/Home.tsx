@@ -5,7 +5,7 @@ export const Home = () => {
 	return (
 		<div className="flex flex-col gap-10 p-5 text-center ">
 			<h1 className="flex gap-3 items-center text-[35px] self-center uppercase font-semibold">
-				Recipes <CookingPot size={30} />
+				fridge chef <CookingPot size={30} />
 			</h1>
 			
 			<div className="w-2/3 self-center">

@@ -1,5 +1,5 @@
 import useSWR, { SWRResponse } from 'swr';
-import { ComplexRecipe, RecipeByIngredients } from './types';
+import { Recipe, RecipeByIngredients } from './types';
 import { fetcher } from 'shared/api';
 
 export const useSimpleRecipes = (
@@ -18,9 +18,16 @@ export const useSimpleRecipes = (
 	);
 };
 
+export type ComplexRecipeRDO = {
+	results: Recipe[];
+	offset: number;
+	number: number;
+	totalResults: number;
+};
+
 export const useComplexRecipes = (
 	products: string[]
-): SWRResponse<ComplexRecipe | null> => {
+): SWRResponse<ComplexRecipeRDO | null> => {
 	return useSWR(
 		`https://api.spoonacular.com/recipes/complexSearch?includeIngredients=${products.join(
 			','

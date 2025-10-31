@@ -1,10 +1,11 @@
-import { RecipeByIngredients, ComplexRecipe } from 'entities/types';
+import { RecipeByIngredients } from 'entities/types';
 import React from 'react';
 import { RecipeByIngredientsCard } from './RecipeByIngredientsCard';
-import { ComplexRecipeItem } from './ComplexRecipeItem';
+import { ComplexRecipeCard } from './ComplexRecipeCard';
+import { ComplexRecipeRDO } from 'entities/useGetRecipes';
 
 type RecipeListProps = {
-	recipes: RecipeByIngredients[] | ComplexRecipe;
+	recipes: RecipeByIngredients[] | ComplexRecipeRDO;
 	isComplexSearch: boolean;
 };
 
@@ -20,7 +21,7 @@ export const RecipesList: React.FC<RecipeListProps> = ({
 				recipeArray.length > 0 &&
 				recipeArray.map((recipe) =>
 					isComplexSearch ? (
-						<ComplexRecipeItem key={recipe.id} recipe={recipe} />
+						<ComplexRecipeCard key={recipe.id} recipe={recipe} />
 					) : (
 						<RecipeByIngredientsCard
 							key={recipe.id}

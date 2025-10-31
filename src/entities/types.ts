@@ -42,12 +42,7 @@ export type Recipe = {
 	title: string;
 };
 
-export type ComplexRecipe = {
-	results: Recipe[];
-	offset: number;
-	number: number;
-	totalResults: number;
-};
+
 
 export type RecipeInfo = {
 	id: number;
@@ -86,4 +81,10 @@ export type RecipeInfo = {
 	weightWatcherSmartPoints: number;
 	dishTypes: string[];
 	extendedIngredients: ExtendedIngredient[];
+};
+
+export type Product = {
+	id: number;
+	name: string;
+	image: string;
 };

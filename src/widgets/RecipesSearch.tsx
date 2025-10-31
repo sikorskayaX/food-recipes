@@ -1,6 +1,7 @@
-import { ProductInput } from 'features/ProductInput';
-import { ProductList } from 'features/ProductList';
-import { Recipes } from 'features/Recipes';
+
+import { ProductInput } from 'features/productInput';
+import { ProductsList } from 'features/productsList';
+import { Recipes } from 'features/recipesList';
 import { Search } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { GoBackButton } from 'shared/ui/GoBackButton';
@@ -57,7 +58,7 @@ export const RecipesSearch = () => {
 				</button>
 			</div>
 			<ProductInput onAddProduct={handleAddProduct} />
-			<ProductList
+			<ProductsList
 				products={products}
 				onRemoveProduct={handleRemoveProduct}
 				onClearProducts={handleClearProducts}

@@ -2,11 +2,13 @@ import { Recipe } from 'entities/types';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-type RecipeListProps = {
+type ComplexRecipeCardProps = {
 	recipe: Recipe;
 };
 
-export const ComplexRecipeItem: React.FC<RecipeListProps> = ({ recipe }) => {
+export const ComplexRecipeCard: React.FC<ComplexRecipeCardProps> = ({
+	recipe,
+}) => {
 	return (
 		<Link
 			to={`/recipes/${recipe.id}`}

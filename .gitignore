@@ -20,7 +20,5 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.env.*
-widget/index.js.map
-widget/index.js
-widget/index.js.LICENSE.txt
+
+src/shared/api/apiKeys.ts

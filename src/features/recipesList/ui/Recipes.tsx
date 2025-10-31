@@ -2,6 +2,7 @@ import { useSimpleRecipes, useComplexRecipes } from 'entities/useGetRecipes';
 import { CircularLoader } from 'shared/ui/CircularLoader';
 import { RecipesList } from './RecipesList';
 
+
 type RecipesProps = {
 	products: string[];
 	isComplexSearch: boolean;

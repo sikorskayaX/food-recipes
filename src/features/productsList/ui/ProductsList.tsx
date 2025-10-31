@@ -1,12 +1,12 @@
 import { X } from 'lucide-react';
 
-type ProductListProps = {
+type ProductsListProps = {
 	products: string[];
 	onRemoveProduct: (product: string) => void;
 	onClearProducts: () => void;
 };
 
-export const ProductList: React.FC<ProductListProps> = ({
+export const ProductsList: React.FC<ProductsListProps> = ({
 	products,
 	onRemoveProduct,
 	onClearProducts,
@@ -15,7 +15,7 @@ export const ProductList: React.FC<ProductListProps> = ({
 		<div className="flex  gap-5 border items-center border-gray-400 p-2 rounded-xl bg-white">
 			<span className="font-semibold">products: </span>
 			{products.length > 0 ? (
-				<div className='flex w-full items-center justify-between'>
+				<div className="flex w-full items-center justify-between">
 					<ul className="flex gap-3">
 						{products.map((product, index) => (
 							<li
@@ -33,7 +33,7 @@ export const ProductList: React.FC<ProductListProps> = ({
 						))}
 					</ul>
 					<button
-						onClick={onClearProducts} 
+						onClick={onClearProducts}
 						className="bg-red-600 text-white border border-gray-400 p-2 hover:bg-red-500 rounded-xl "
 					>
 						clear all

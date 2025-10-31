@@ -19,20 +19,23 @@ export const RecipeDetail = () => {
 					{data.title} <Utensils />
 				</h1>
 			</div>
-			<div className="flex gap-10 items-center">
+			<div className="flex flex-col md:flex-row gap-10 ">
 				<img src={data.image} alt={data.title} className="w-1/3 rounded-xl" />
-				<ul className="flex flex-col bg-white p-5 rounded-xl border w-full h-auto">
-					<h3 className="uppercase font-bold">Ingredients:</h3>
-					{data.extendedIngredients.map((ingredient) => (
-						<li key={ingredient.id}>
-							<span className="uppercase">{ingredient.name}</span> -{' '}
-							<span>
-								{ingredient.measures.metric.amount}{' '}
-								{ingredient.measures.metric.unitLong}
-							</span>
-						</li>
-					))}
-				</ul>
+				<div className='flex flex-col gap-5 h-auto'>
+					<ul className="flex flex-col bg-white p-5 rounded-xl border ">
+						<h3 className="uppercase font-bold">Ingredients:</h3>
+						{data.extendedIngredients.map((ingredient) => (
+							<li key={ingredient.id}>
+								<span className="uppercase">{ingredient.name}</span> -{' '}
+								<span>
+									{ingredient.measures.metric.amount}{' '}
+									{ingredient.measures.metric.unitLong}
+								</span>
+							</li>
+						))}
+					</ul>
+					<span className='font-semibold bg-white p-5 rounded-xl border '>ready in minutes: {data.readyInMinutes} </span>
+				</div>
 			</div>
 			<div>
 				<h3 className="uppercase font-bold">Instructions:</h3>
