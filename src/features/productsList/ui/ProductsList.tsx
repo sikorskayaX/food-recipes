@@ -20,7 +20,7 @@ export const ProductsList: React.FC<ProductsListProps> = ({
 						{products.map((product, index) => (
 							<li
 								key={index}
-								className="flex items-center gap-4 border border-gray-400 w-fit rounded-xl p-2 bg-amber-50"
+								className="flex items-center gap-4 border border-gray-400 w-fit rounded-xl p-2 bg-[#f3f4f8]"
 							>
 								{product}
 								<button
@@ -34,7 +34,7 @@ export const ProductsList: React.FC<ProductsListProps> = ({
 					</ul>
 					<button
 						onClick={onClearProducts}
-						className="bg-red-600 text-white border border-gray-400 p-2 hover:bg-red-500 rounded-xl "
+						className="bg-[#f5817f] text-white border border-gray-400 py-2 px-6 hover:bg-[#ec8988] rounded-xl "
 					>
 						clear all
 					</button>

@@ -16,7 +16,19 @@ export const RecipeByIngredientsCard: React.FC<RecipeListProps> = ({
 			key={recipe.id}
 			className="flex flex-col border bg-white border-gray-400 p-5 rounded-xl gap-5 "
 		>
-			<h3 className="font-semibold">{recipe.title}</h3>
+			<div className="flex justify-between items-center">
+				<h3 className="font-bold">{recipe.title}</h3>
+				<span className="bg-[#e3f0e6] p-2 rounded-md font-semibold justify-center text-center">
+					{Math.round(
+						(recipe.usedIngredients.length /
+							(recipe.usedIngredients.length +
+								recipe.missedIngredients.length)) *
+							100
+					)}%{' '}
+					match
+				</span>
+			</div>
+
 			<img
 				src={recipe.image}
 				alt={recipe.title}

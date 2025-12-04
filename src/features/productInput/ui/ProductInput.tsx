@@ -34,7 +34,8 @@ export const ProductInput: React.FC<ProductInputProps> = ({ onAddProduct }) => {
 	};
 
 	const handleSelectProduct = (selectedProduct: string) => {
-		setProduct(selectedProduct);
+		onAddProduct(selectedProduct);
+		setProduct('');
 		setSuggestions([]);
 		setIsDropdownOpen(false);
 	};

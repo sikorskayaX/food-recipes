@@ -17,7 +17,7 @@ export const fetcher = async (url: string) => {
 			if (axios.isAxiosError(error)) {
 				if (error.response && error.response.status === 402) {
 					console.warn(
-						`API key ${API_KEYS[currentApiKeyIndex]} exceeded its limit. Switching to next key.`
+						`API key exceeded its limit. Switching to next key. ${currentApiKeyIndex + 1}/${API_KEYS.length}`
 					);
 					currentApiKeyIndex++;
 				} else {

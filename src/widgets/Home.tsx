@@ -21,12 +21,7 @@ export const Home = () => {
 					possible and require as few additional ingredients as possible.
 				</span>
 			</div>
-			<div className="w-2/3 self-center">
-				<h2 className="font-bold uppercase text-[25px]">Search Recipes</h2>
-				<span className="text-[20px]">
-					Search through thousands of recipes by your ingredients.
-				</span>
-			</div>
+			
 			<Link
 				to={'/recipes'}
 				className="border uppercase rounded-xl p-5 border-gray-400 font-semibold w-1/3 self-center bg-white"

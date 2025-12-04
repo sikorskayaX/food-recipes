@@ -13,7 +13,7 @@ export const useGetProducts = (
 	productName: string
 ): SWRResponse<ProductsRDO> => {
 	return useSWR(
-		`https://api.spoonacular.com/food/ingredients/search?query=${productName}&apiKey=${process.env.API_KEY}`,
+		`https://api.spoonacular.com/food/ingredients/search?query=${productName}`,
 		fetcher,
 		{
 			revalidateIfStale: false,

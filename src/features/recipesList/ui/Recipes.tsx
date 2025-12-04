@@ -1,39 +1,25 @@
-import { useSimpleRecipes, useComplexRecipes } from 'entities/useGetRecipes';
+import { useSimpleRecipes } from 'entities/useGetRecipes';
 import { CircularLoader } from 'shared/ui/CircularLoader';
 import { RecipesList } from './RecipesList';
 
-
 type RecipesProps = {
 	products: string[];
-	isComplexSearch: boolean;
 };
 
-export const Recipes = ({ products, isComplexSearch }: RecipesProps) => {
+export const Recipes = ({ products }: RecipesProps) => {
 	const {
 		data: simpleRecipes,
 		isLoading: simpleLoading,
 		error: simpleError,
 	} = useSimpleRecipes(products);
 
-	const {
-		data: complexRecipes,
-		isLoading: complexLoading,
-		error: complexError,
-	} = useComplexRecipes(products);
-
-	const recipes = isComplexSearch ? complexRecipes : simpleRecipes;
-	const loading = simpleLoading || complexLoading;
-	const error = simpleError || complexError;
-
-	if (loading) {
+	if (simpleLoading) {
 		return <CircularLoader />;
 	}
 
-	if (error) {
-		return <span>Error: {error.message}</span>;
+	if (simpleError) {
+		return <span>Error: {simpleError.message}</span>;
 	}
 
-	return (
-		<RecipesList recipes={recipes || []} isComplexSearch={isComplexSearch} />
-	);
+	return <RecipesList recipes={simpleRecipes || []} />;
 };
