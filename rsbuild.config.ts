@@ -22,7 +22,7 @@ export default defineConfig({
 			js: 'index.js',
 		},
 		distPath: {
-			root: './dist',
+			root: './build',
 			js: '.',
 		},
 		injectStyles: true,
