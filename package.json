@@ -4,8 +4,7 @@
 	"version": "1.0.0",
 	"scripts": {
 		"dev": "cross-env IS_LOCAL=true rsbuild dev",
-		"build": "rsbuild build",
-		"build:dev": "rsbuild build --env-mode development",
+		"build": "rsbuild build && shx cp build/index.html build/404.html",
 		"predeploy": "npm run build",
 		"deploy": "gh-pages -d build"
 	},
@@ -23,8 +22,9 @@
 		"esbuild-loader": "4.0.2",
 		"gh-pages": "^6.3.0",
 		"path": "^0.12.7",
-		"sass": "1.68.0",
+		"sass": "^1.94.2",
 		"sass-loader": "13.3.2",
+		"shx": "^0.4.0",
 		"style-loader": "3.3.3",
 		"ts-loader": "9.4.4",
 		"ts-node": "10.9.1",
