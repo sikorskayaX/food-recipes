@@ -1,0 +1,24 @@
+/node_modules
+/widget
+/dist
+# dependencies
+/develop/node_modules
+.idea/*
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+*.zip
+# misc
+.DS_Store
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+src/shared/api/apiKeys.ts
