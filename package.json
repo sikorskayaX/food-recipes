@@ -1,5 +1,4 @@
 {
-	"homepage": "https://sikorskayax.github.io/food-recipes",
 	"name": "food-recipes",
 	"version": "1.0.0",
 	"scripts": {
@@ -8,6 +7,7 @@
 		"predeploy": "npm run build",
 		"deploy": "gh-pages -d build"
 	},
+	"homepage": "https://sikorskayax.github.io/food-recipes",
 	"author": "ksenia",
 	"license": "ISC",
 	"devDependencies": {
